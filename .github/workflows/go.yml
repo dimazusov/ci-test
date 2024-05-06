@@ -19,7 +19,7 @@ jobs:
         uses: webfactory/ssh-agent@v0.5.3
         with:
           ssh-private-key: ${{ secrets.OPTIMIZATION_VPS_PRIVATE_KEY }}
-          ssh-known-hosts: ${{ secrets.optimization-prod.OPTIMIZATION_VPS_SSH_KNOWN_HOSTS }}
+          ssh-known-hosts: ${{ secrets.OPTIMIZATION_VPS_SSH_KNOWN_HOSTS }}
 
       - name: Run command on remote server
         run: ssh ${{ vars.OPTIMIZATION_VPS_USER }}@${{ vars.OPTIMIZATION_VPS_HOST }} "touch test.txt"
