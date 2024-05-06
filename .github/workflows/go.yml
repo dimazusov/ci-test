@@ -12,17 +12,26 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+      - name: checkout
+        uses: actions/checkout@v4
 
-      - name: Setup SSH
-        uses: webfactory/ssh-agent@v0.5.3
+      - name: executing remote ssh commands using ssh key
+        uses: ./
         with:
-          ssh-private-key: ${{ secrets.OPTIMIZATION_VPS_PRIVATE_KEY }}
-#          ssh-known-hosts: ${{ secrets.OPTIMIZATION_VPS_SSH_KNOWN_HOSTS }}
+          host: 158.160.109.252
+          username: admin
+          key: ${{ secrets.OPTIMIZATION_VPS_PRIVATE_KEY }}
+          port: 22
+          script: "touch test.txt"
 
-      - name: Run command on remote server
-        run: ssh admin@158.160.109.252 "touch test.txt"
+#      - name: Setup SSH
+#        uses: webfactory/ssh-agent@v0.5.3
+#        with:
+#          ssh-private-key: ${{ secrets.OPTIMIZATION_VPS_PRIVATE_KEY }}
+##          ssh-known-hosts: ${{ secrets.OPTIMIZATION_VPS_SSH_KNOWN_HOSTS }}
+#
+#      - name: Run command on remote server
+#        run: ssh admin@158.160.109.252 "touch test.txt"
 
 #name: Remote Commands Execution
 #
