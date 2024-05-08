@@ -18,7 +18,14 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22 # Опционально, если используется нестандартный порт
           script: |
-            touch test.txt
+            rm -rf ~/optprogram
+            git clone https://github.com/dimazusov/ci-test.git optprogram
+            cd optprogram
+            sudo docker build -t optprogram .
+            
+            sudo docker rmi $(sudo docker images | grep optprogram | tr -s ' ' | cut -d ' ' -f 3)
+            
+            sudo docker run -dit -p 8080:8080 optprogram
 
 #name: SSH Deploy
 #
