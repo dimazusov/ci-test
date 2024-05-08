@@ -27,6 +27,7 @@ jobs:
             sudo docker run -dit -p 8080:8080 --name optprogram-server optprogram
 
 
+
 #            sudo docker rmi $(sudo docker images | grep optprogram | tr -s ' ' | cut -d ' ' -f 3)
 #name: SSH Deploy
 #
