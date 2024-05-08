@@ -13,8 +13,8 @@ jobs:
       - name: Execute SSH commands
         uses: appleboy/ssh-action@master # Используем Action для подключения по SSH
         with:
-          host: 158.160.109.252 # Здесь и далее используйте значения, добавленные как секреты
-          username: admin
+          host: 178.154.220.48 # Здесь и далее используйте значения, добавленные как секреты
+          username: dimazusov
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           port: 22 # Опционально, если используется нестандартный порт
           script: |
