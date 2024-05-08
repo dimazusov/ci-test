@@ -1,7 +1,5 @@
 FROM golang:1.15.2 as build
 
-ENV SERVER_FILE /opt/catalog/catalog-app
-
 ENV CODE_DIR /go/src/
 
 WORKDIR ${CODE_DIR}
